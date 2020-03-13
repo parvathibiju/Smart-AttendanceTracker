@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .table-column{
+        background-color:whitesmoke;
+        padding: 12px;
+        width: 60%;
+        margin-left: 200px;
+        margin-right: 2000px;
+    }
+    .information{
+        align-self: center;
+
+    }
+* {
+  box-sizing: border-box;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+.vertical-menu {
+  width: 200px;
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: rgb(17, 127, 218);
+  color:black;
+}
+
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: rgb(7, 6, 6);
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 100%;
+  padding: 180px;
+  text-align: center;
+}
+.table-sortable {
+  cursor: pointer;
+}
+.table-sortable .th-sort-asc::after{
+  content: "\25b4";
+}
+.table-sortable .th-sort-desc::after{
+  content: "\25be";
+}
+.table-sortable .th-sort-asc::after, .table-sortable .th-sort-asc::after
+{
+  margin-left: 5px;
+
+}
+.table-sortable .th-sort-asc, .th-sort-desc{
+  background: rgba(0,0,0,0.1);
+}
+
+</style>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+{% for item in name %}
+<h1> Welcome {{item.name}}</h1>
+{% endfor %}
+</head>
+<body>
+  
+
+<div class = "bg-text">
+    <div class="vertical-menu" style = "size: 5cm;" align = "left">
+        
+            <a href="/raise-issue-form">RAISE AN ISSUE</a><br>
+            <a href="/upload-od-form">UPLOAD OD</a><br>
+            <a href="/attendance-report-form">VIEW DETAILED ATTENDANCE REPORT</a><br>
+            <a href="/view-issues-students">VIEW ISSUE HISTORY</a><br>
+            <a href="/view-OD/ML-history">VIEW AAPLIED OD/ML</a>
+            <a href="reset-passowrd-form">RESET PASSWORD</a>
+            <a href="/logout">LOGOUT</a>
+      </div>
+
+
+<div align = "right" style = "height: 700px; width: 25%; position: absolute; left: 1000px; top:25%;">
+
+<ul id="myUL">
+  <li ><a href="#">Notification</a></li>
+  {% for row in notif %}
+  <li><a href="#">{{row.stud_message}}</a></li>
+  {% endfor %}
+ 
+</ul>
+</div>
+
+<div>
+            <form>
+            <table  class="table table-dark table-sortable" style="width: 100px; size: 10%" rules = "rows" align = "center">
+            {%if result %}
+            <thead>
+            <tr>
+                <th scope="col">course_id</th>
+                <th scope="col">course_name</th>
+                <th scope="col">attendance percentage</th>
+            </tr>
+          </thead>
+            <tbody>
+            {% for row in result %}
+            <tr>
+                <td align="center" class="table-column" width="10px" ><form method='POST' action='/attendance-report'><input type="submit" name="course" id="course" value={{row.course_id}}></form> </td>
+                <td align="center" class="table-column" width="10px" >{{row.course_name}}</td>
+                <td align="center" class="table-column" width="10px" >{{dicti[row.course_id]}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+            {% endif %}
+        </table>
+        </div>
+      </form>
+      
+      <script >
+        function sortTableByColumn(table, column, asc = true){
+          const dirModifier = asc ? 1 : -1;
+          const tBody = table.tBodies[0];
+          const rows = Array.from(tBody.querySelectorAll("tr"));
+          const sortedRows = rows.sort((a, b) => {
+                  console.log(a);
+                  console.log(b);
+                  const aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+                  const bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+                  console.log(aColText);
+                  console.log(bColText);
+                  //sort each row
+                  return aColText > bColText ? (1 * dirModifier): (-1 * dirModifier);
+                  
+          });
+          //remove the pre-existing data
+          while(tBody.firstChild)
+                  {
+                      tBody.removeChild(tBody.firstChild);
+      
+                  }
+      
+                  //insert the sorted data into the body
+                  tBody.append(...sortedRows);
+          console.log(sortedRows);
+          //remember the sort order
+          table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+          table.querySelector(`th:nth-child(${column +1})`).classList.toggle("th-sort-asc", asc);
+          table.querySelector(`th:nth-child(${column +1})`).classList.toggle("th-sort-desc", !asc);
+      
+      }
+      //sortTableByColumn(document.querySelector("table"), 1, true);
+      //toggling between ascending and descending ordering
+      document.querySelectorAll(".table-sortable th").forEach(headerCell => {
+          headerCell.addEventListener("click", ()=>{
+              const tableElement = headerCell.parentElement.parentElement.parentElement;
+              const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+              const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+      
+              sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+          });
+      });
+      </script>
+
+</body>
+</html>
+
+
+
+

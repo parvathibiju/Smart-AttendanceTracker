@@ -1,0 +1,108 @@
+<html>
+    <title>students in the course</title>
+    <head>Issues
+        <style>
+            .table-sortable {
+                cursor: pointer;
+            }
+            .table-sortable .th-sort-asc::after{
+                content: "\25b4";
+            }
+            .table-sortable .th-sort-desc::after{
+                content: "\25be";
+            }
+            .table-sortable .th-sort-asc::after, .table-sortable .th-sort-asc::after
+            {
+                margin-left: 5px;
+    
+            }
+            .table-sortable .th-sort-asc, .th-sort-desc{
+                background: rgba(0,0,0,0.1);
+            }
+        </style>
+        
+    </head>
+    
+    <body>
+        <form action="/delete-issue" method='POST'>
+        <div>
+            <table id="course-details" class = " table table-dark table-sortable"" style="width: 100px; size: 10%" align = "center">
+            <thead>
+            <tr>
+                <th>issue_id</th>
+                <th>faculty_id</th>
+                <th>date_of_class</th>
+                <th>hour_of_issue</th>
+                <th>status of issue</th>
+                <th>   DELETE   </th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in res %}
+            <tr>
+                
+                <td align="center" >{{row.issue_id}}</td>
+                <td align="center" >{{row.student_id}}</td>
+                <td align="center">{{row.date_of_issue}}</td>
+                <td align="center">{{row.hour_of_issue}}</td>
+                <td align="center">{{row.status_of_issue}}</td>
+                {%if row.status_of_issue =='Ongoing' %}
+                <td align="center"><label><input type="checkbox" name="check" value={{row.issue_id}}> </label></td><br>
+                {% endif %}
+                   
+            </tr>
+            {% endfor %}
+        </tbody>
+          
+        </table>
+        <br><BR><br><br>
+        <input type="submit" value="DELETE">
+        </div>
+    </form>
+    <script>
+        function sortTableByColumn(table, column, asc = true){
+            const dirModifier = asc ? 1 : -1;
+            const tBody = table.tBodies[0];
+            const rows = Array.from(tBody.querySelectorAll("tr"));
+            const sortedRows = rows.sort((a, b) => {
+                    console.log(a);
+                    console.log(b);
+                    const aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+                    const bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+                    console.log(aColText);
+                    console.log(bColText);
+                    //sort each row
+                    return aColText > bColText ? (1 * dirModifier): (-1 * dirModifier);
+                    
+            });
+            //remove the pre-existing data
+            while(tBody.firstChild)
+                    {
+                        tBody.removeChild(tBody.firstChild);
+        
+                    }
+        
+                    //insert the sorted data into the body
+                    tBody.append(...sortedRows);
+            console.log(sortedRows);
+            //remember the sort order
+            table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+            table.querySelector(`th:nth-child(${column +1})`).classList.toggle("th-sort-asc", asc);
+            table.querySelector(`th:nth-child(${column +1})`).classList.toggle("th-sort-desc", !asc);
+        
+        }
+        //sortTableByColumn(document.querySelector("table"), 1, true);
+        //toggling between ascending and descending ordering
+        document.querySelectorAll(".table-sortable th").forEach(headerCell => {
+            headerCell.addEventListener("click", ()=>{
+                const tableElement = headerCell.parentElement.parentElement.parentElement;
+                const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+                const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+        
+                sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+            });
+        });
+    </script>
+    </body>
+</html>

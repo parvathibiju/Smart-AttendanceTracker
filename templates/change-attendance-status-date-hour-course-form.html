@@ -1,0 +1,16 @@
+<html>
+    <title>change-attendance-status-date-hour-course-form</title>
+    <head></head>
+    <body>
+        <form action="/change-attendance-status-form-students-list" method="POST">
+            DATE <input type="date" name="date">
+            HOUR <input type="number" name="hour">
+            <select name='course'> 
+                {% for row in result%}
+                <option value={{row.course_id}}>{{row.course_id}}</option>
+                {% endfor%}
+            </select>
+            <input type="submit" value="GET STUDENTS LIST">
+        </form>
+    </body>
+</html>

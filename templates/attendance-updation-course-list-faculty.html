@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv=”refresh” content=”60; attendance-updation-course-list-faculty.html” /></head>
+    <style>
+        body{font-family: Arial;}
+    </style>
+    <body>
+        <h1> Update Attendance</h1>
+        <table class="table table-dark"cellpadding = "20" align = "center" rules = "rows" top = "20">
+            <thead>
+              <tr >
+                <th scope="col">Course Id</th>
+                <th scope="col">Course Name</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+            {% for row in res %}
+            
+              <tr >
+                <td><form action = '/attendance-form' method='POST'>
+                    <input type="hidden" name ='course' id ='course' value={{row.course_id}} >
+                    <input type ="submit" name='sub' id='sub' value={{row.course_id}}>
+                </form></td>
+                <td>{{row.course_name}}</td>
+              </tr>
+            
+              {% endfor %}
+            </tbody>
+          </table>
+          <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                  const rows = document.querySelectorAll("tr[data-href]");
+                  rows.forEach( row => {
+                        row.addEventListener("click", () => {
+                            window.location.href = row.dataset.href;
+                        });
+                  }); 
+                      
+              });
+          </script>
+    </body>
+</html>

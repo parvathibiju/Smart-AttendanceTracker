@@ -1,0 +1,14 @@
+<html>
+    <title>attendance report</title>
+    <head>Attendance Report</head>
+    <body>
+        <br><br>
+        ATTENDANCE FOR COURSE IS {{percentage}}
+        {% for row in result %}
+
+       <span> {{row.date_of_class}}</span><span> {{row.hour_of_class}}</span><span> {{row.status_of_student}}</span><br><br>
+
+        {% endfor %}
+       
+    </body>
+</html>

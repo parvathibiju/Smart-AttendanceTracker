@@ -1,0 +1,9 @@
+<html>
+    <title>view-od-applications</title>
+    <head><h1>ODs UPLOADED</h1></head>
+    <body>
+        {% for row in res%}
+        {{row.student_id}} <div><img src={{row.pathname}} /><br>{{row.pathname}}</div><br>
+        {% endfor %}
+    </body>
+</html>
