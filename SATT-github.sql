@@ -1,4 +1,4 @@
-CREATE USER IF NOT EXISTS 'dev'@'localhost' IDENTIFIED BY 'dev';
+CREATE USER IF NOT EXISTS 'dev'@'localhost' IDENTIFIED BY 'Parvathi';
 CREATE DATABASE  IF NOT EXISTS `swdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `swdb`;
 GRANT ALL ON *.* TO 'dev'@'localhost';
