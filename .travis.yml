@@ -5,6 +5,7 @@ cache: pip
 install:
   - pip install flask
   - pip install pymysql
+  - pip install selenium
   
 script:
   - python testsuit.py
