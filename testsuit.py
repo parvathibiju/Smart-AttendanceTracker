@@ -4,7 +4,7 @@ import pymysql.cursors
 class TestStringMethods(unittest.TestCase):
 
     def test_student_login(self):
-        con = pymysql.connect(host='localhost', user='root', password='password', db='swdb')
+        con = pymysql.connect(host='localhost', user='dev', password='Parvathi', db='swdb')
         cur = con.cursor()
         faculty_id = "fac103"
         cur.execute('select * from faculty_login where faculty_id=%s', faculty_id)
@@ -13,7 +13,7 @@ class TestStringMethods(unittest.TestCase):
             self.assertEqual(row[0], 'fac103')
 
     def test_faculty_login(self):
-        con = pymysql.connect(host='localhost', user='root', password='password', db='swdb')
+        con = pymysql.connect(host='localhost', user='dev', password='Parvathi', db='swdb')
         cur = con.cursor()
         student_id = "std102"
         cur.execute('select * from student_login where student_id=%s', student_id)
@@ -23,7 +23,7 @@ class TestStringMethods(unittest.TestCase):
 
 
     def test_course(self):
-        con = pymysql.connect(host='localhost', user='root', password='password', db='swdb')
+        con = pymysql.connect(host='localhost', user='dev', password='Parvathi', db='swdb')
         cur = con.cursor()
         course_id = "std102"
         cur.execute('SELECT * FROM course_details where course_id=%s', course_id)
@@ -33,7 +33,7 @@ class TestStringMethods(unittest.TestCase):
 
 
     def test_facultyid(self):
-        con = pymysql.connect(host='localhost', user='root', password='password', db='swdb')
+        con = pymysql.connect(host='localhost', user='dev', password='Parvathi', db='swdb')
         cur = con.cursor()
         faculty_id = "cse123"
         cur.execute('SELECT * FROM faculty where faculty_id=%s', faculty_id)
@@ -43,7 +43,7 @@ class TestStringMethods(unittest.TestCase):
 
 
     def test_faculty_notification(self):
-        con = pymysql.connect(host='localhost', user='root', password='password', db='swdb')
+        con = pymysql.connect(host='localhost', user='dev', password='Parvathi', db='swdb')
         cur = con.cursor()
         faculty_id = "fac101"
         cur.execute('SELECT * FROM faculty_notification where faculty_id=%s', faculty_id)
@@ -54,7 +54,7 @@ class TestStringMethods(unittest.TestCase):
 
 
     def test_faculty_course_handling(self):
-        con = pymysql.connect(host='localhost', user='root', password='password', db='swdb')
+        con = pymysql.connect(host='localhost', user='dev', password='Parvathi', db='swdb')
         cur = con.cursor()
         faculty_id = "fac102"
         cur.execute('SELECT * FROM faculty_to_course where faculty_id=%s', faculty_id)
@@ -64,7 +64,7 @@ class TestStringMethods(unittest.TestCase):
 
 
     def test_student_advisor(self):
-        con = pymysql.connect(host='localhost', user='root', password='password', db='swdb')
+        con = pymysql.connect(host='localhost', user='dev', password='Parvathi', db='swdb')
         cur = con.cursor()
         student_id = "cse234"
         cur.execute('SELECT * FROM student where student_id=%s', student_id)
@@ -73,7 +73,7 @@ class TestStringMethods(unittest.TestCase):
             self.assertEqual(row[3], 'cse123')
 
     def test_student_course(self):
-        con = pymysql.connect(host='localhost', user='root', password='password', db='swdb')
+        con = pymysql.connect(host='localhost', user='dev', password='Parvathi', db='swdb')
         cur = con.cursor()
         student_id = "std101"
         course_id = "cse124"
