@@ -1,43 +1,86 @@
 <!DOCTYPE html>
-<html>
-<style>
-    body {
-            font-family: Arial;
-        }
-    #myDiv {
-        box-sizing: content-box;  
-        width: 300px;
-        height: 300px;
-        padding: 10px;  
-        border-radius: 8px;
-        border: solid black;
-        border-width: initial;}
-    </style>
-    </head>
-    <body>
-    <div align = "center" style = "padding: 10%">
-    <div id="myDiv">
-        <h3> Raise issues</h3>
-        <form action="/issues" method='POST'>
-        <label for = "date">Date</label>
-            <input type = "date" id = "date" name = "date" style = "border-radius: 5px;" required><br><br>
-        <label for = "hour">Hour</label>
-            <input type = "number" id = "time" name = "time" style = "border-radius: 5px;" required><br><br>
-        <label for = "fid">Faculty ID</label>
-            <input type = "text" id = "fid" name = "fid" style = "border-radius: 5px;" required><br><br>
-        <label for = "cid">Course ID</label>
-            <input type = "text" id = "cid" name = "cid" style = "border-radius: 5px;" required><br><br>
-        <label for = "remark">Remarks</label>
-            <input type = "text" id = "remark" name = "remark"style = "border-radius: 5px; breadth: 30;" placeholder="mention the hour and any other remarks" required><br><br>
-            <input type="submit" value="RAISE ISSUE"><BR><BR>
-        </form>
-        <br>
-        <br>
-        <br>
-        
-        {{msg}}
-    </div>
-</div>
-    </body>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="icon" type="image/png" href="/static/Login_v1/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/animate/animate.css">	
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/main.css">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style = "padding: 25%">
+			<div class="wrap-login100">
 
+				<form class="login100-form validate-form" action="/issues" method='POST'>
+					<span class="login100-form-title">
+						Raise an Issue
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Please fill">
+						<input class="input100" type="date"   id = "date" name = "date"placeholder="">
+						<span class="focus-input100"></span>
+						
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Please fill">
+						<input class="input100" type="number" id = "time" name = "time" placeholder="Enter Time">
+						<span class="focus-input100"></span>
+						
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Please fill">
+						<input class="input100" type="text"  id = "fid" name = "fid"placeholder="Enter Faculty ID">
+						<span class="focus-input100"></span>
+						
+                    </div>
+                   
+                    <div class="wrap-input100 validate-input" data-validate = "Please fill">
+						<input class="input100" type="text"  id = "cid" name = "cid" placeholder="Enter Course ID">
+						<span class="focus-input100"></span>
+						
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Please fill">
+						<input class="input100" type="text" id = "remark" name = "remark" style = "padding:20%" placeholder="Remarks if any...">
+						<span class="focus-input100"></span>
+						
+                    </div>
+                    
+                   
+					
+					<div class="container-login100-form-btn">
+                        <input type="submit" value="RAISE ISSUE"  class="login100-form-btn">
+                       
+						
+	
+					</div>
+
+                    <br>
+                    <br>
+                    <br>
+                    
+                    {{msg}}
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+	<script src="/static/Login_v1/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/Login_v1/vendor/select2/select2.min.js"></script>
+	<script src="/static/Login_v1/vendor/tilt/tilt.jquery.min.js"></script>
+	
+	<script src="/static/Login_v1/js/main.js"></script>
+
+</body>
 </html>

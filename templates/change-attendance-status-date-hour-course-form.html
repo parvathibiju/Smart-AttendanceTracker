@@ -1,16 +1,58 @@
-<html>
-    <title>change-attendance-status-date-hour-course-form</title>
-    <head></head>
-    <body>
-        <form action="/change-attendance-status-form-students-list" method="POST">
-            DATE <input type="date" name="date">
-            HOUR <input type="number" name="hour">
-            <select name='course'> 
-                {% for row in result%}
-                <option value={{row.course_id}}>{{row.course_id}}</option>
-                {% endfor%}
-            </select>
-            <input type="submit" value="GET STUDENTS LIST">
-        </form>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="icon" type="image/png" href="/static/Login_v1/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/animate/animate.css">	
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/main.css">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style = "padding: 25%">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="/change-attendance-status-form-students-list" method="POST">
+					<span class="login100-form-title">
+						Get Student List
+					</span>
+
+                    <input class="input100" type="date" name="date" placeholder="dd-mm-yyyy">
+						<span class="focus-input100"></span><br>
+                    <input class="input100" type="number" name="hour" placeholder="hour">
+						<span class="focus-input100"></span><br>
+                     <select name='course' class = "input100" style = "border-radius: 0%;"> 
+                        {% for row in result%}
+                        <option value={{row.course_id}}>{{row.course_id}}></option>
+                        {% endfor%}
+                    </select><br>
+					
+					<div class="container-login100-form-btn">
+						<input type="submit" value="GET STUDENTS LIST" class = "login100-form-btn">
+					</div>
+
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+	<script src="/static/Login_v1/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/Login_v1/vendor/select2/select2.min.js"></script>
+	<script src="/static/Login_v1/vendor/tilt/tilt.jquery.min.js"></script>
+
+	<script src="/static/Login_v1/js/main.js"></script>
+
+</body>
 </html>

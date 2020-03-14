@@ -1,8 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv=”refresh” content=”60; dashboard_faculty.html” />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="icon" type="image/png" href="/static/Login_v1/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/animate/animate.css">	
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/main.css">
+</head>
 <style>
     .table-column{
         background-color:whitesmoke;
@@ -18,7 +28,15 @@
 * {
   box-sizing: border-box;
 }
-
+.header {
+  overflow: hidden; 
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  padding: 20px 10px;
+}
 #myUL {
   list-style-type: none;
   padding: 0;
@@ -59,40 +77,72 @@
   background-color: rgb(17, 127, 218);
   color:black;
 }
-.bg-image {
-  /* The image used */
-  background-image: url("background.jpg");
-  
-  /* Add the blur effect */
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
-  
-  /* Full height */
-  height: 100%; 
-  
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.bg-text {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: rgb(7, 6, 6);
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 100%;
-  padding: 180px;
-  text-align: center;
-}
+
+
 
 </style>
-<script>
+<body>
+	
+	<div class="limiter">
+        <div class = "header">
+        {% for item in name_var %}
+        <h1 > Welcome {{item.name}}</h1>{% endfor %}
+    </div>
+	<div class="wrap-login100" style ="padding: 0.5%;">
+    <div class="vertical-menu" style = "size: 5cm;" align = "left">
+       <a class="txt2 " href="/issues-view-faculty">ISSUES</a><br>
+       <a class="txt2" href="/od-applications">OD APPLICATIONS</a><br>
+       <a class="txt2" href="/course_list_for_faculty">ATTENDANCE UPDATION</a><br>
+       <a class="txt2" href="/od-update-date-and-hour">UPDATE OD ATTENDANCE</a><br>
+       <a class="txt2" href="/change-attendance-status-date-hour-course-form">CHANGE ATTENDANCE STATUS</a><br>
+       <a class="txt2" href="/logout">LOGOUT</a><br>
+      </div>
+
+        <div>
+            <table id="course-details" class = "login100-form validate-form table" style="width: 100px; size: 10%" align = "center">
+            {%if result %}
+            <tr>
+                <th>course_id</th>
+                <th>course_name</th>
+            </tr>
+           
+            {% for row in result %}
+            
+            <tr>
+              <td align="center" class="table-column" width="10px" >
+                <form action = '/students-in-a-course' method='POST'>
+                  <input type="hidden" name ='course' id ='course' value={{row.course_id}} >
+                  <input type ="submit" class="login100-form-btn" style = "padding: 2px" name='sub' id='sub' value={{row.course_id}}>
+              </form> </td>
+                <td align="center" class="table-column" width="10px" >{{row.course_name}}</td>
+              
+            </tr>
+          
+            {% endfor %}
+          
+            {% endif %}
+        </table>
+        </div>
+        
+
+        <div align = "right" style = "height: 700px; width: 25%; position: absolute; left: 900px; top:27%;">
+
+            <ul id="myUL">
+            <li ><a class="txt2 " href="#">Notification</a></li>
+            {% for row in notif %}
+            <li><a class="txt2 " href="#">{{row.fac_message}}</a></li>
+            {% endfor %}
+        </ul>
+        </div>
+
+        <br>
+
+				
+				
+			</div>
+        </div>
+</body>
+	<script>
 function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");
@@ -110,64 +160,12 @@ function myFunction() {
     }
 }
 </script>
-{% for item in name_var %}
-<h1> Welcome {{item.name}}</h1>
-{% endfor %}
-</head>
-<body>
-  
-<div class="bg-image" style ="left:1000px"></div>
-<div class = "bg-text">
-    <div class="vertical-menu" style = "size: 5cm;" align = "left">
-       <a href="/issues-view-faculty">ISSUES</a><br>
-       <a href="/view-od-applications">VIEW OD APPLICATIONS</a><br>
-       <a href="/course_list_for_faculty">ATTENDANCE UPDATION</a><br>
-       <a href="/od-update-date-and-hour">UPDATE OD ATTENDANCE</a>
-       <a href="/change-attendance-status-date-hour-course-form">CHANGE ATTENDANCE STATUS</a>
-       <a href="reset-passowrd-form">RESET PASSWORD</a>
-       <a href="/logout">LOGOUT</a>
-      </div>
-
-
-<div align = "right" style = "height: 700px; width: 25%; position: absolute; left: 1000px; top:25%;">
-
-<ul id="myUL">
-  <li ><a href="#">Notification</a></li>
-  {% for row in notif %}
-  <li><a href="#">{{row.fac_message}}</a></li>
-  {% endfor %}
- 
- 
-</ul>
-</div>
-
-<div>
-            <table id="course-details" class = " table" style="width: 100px; size: 10%" align = "center">
-            {%if result %}
-            <tr>
-                <th>course_id</th>
-                <th>course_name</th>
-            </tr>
-           
-            {% for row in result %}
-            
-            <tr>
-              <td align="center" class="table-column" width="10px" >
-                <form action = '/students-in-a-course' method='POST'>
-                  <input type="hidden" name ='course' id ='course' value={{row.course_id}} >
-                  <input type ="submit" name='sub' id='sub' value={{row.course_id}}>
-              </form> </td>
-                <td align="center" class="table-column" width="10px" >{{row.course_name}}</td>
-              
-            </tr>
-          
-            {% endfor %}
-          
-            {% endif %}
-        </table>
-        </div>
-      </div>
-
+	<script src="/static/Login_v1/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/Login_v1/vendor/select2/select2.min.js"></script>
+	<script src="/static/Login_v1/vendor/tilt/tilt.jquery.min.js"></script>
+	<script src="/static/Login_v1/js/main.js"></script>
 
 </body>
 </html>

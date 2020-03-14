@@ -1,61 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="icon" type="image/png" href="/static/Login_v1/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/animate/animate.css">	
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/main.css">
+</head>
 <style>
-  
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.bg-image {
-  /* The image used */
-  background-image: url("images.jfif");
-  
-  /* Add the blur effect */
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
-  
-  /* Full height */
-  height: 100%; 
-  
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* Position text in the middle of the page/image */
-.bg-text {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: white;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 80%;
-  padding: 20px;
-  text-align: center;
-}
-</style>
-<style>
-  .dropbtn {
+    .dropbtn {
 background-color: #3498DB;
 color: white;
 padding: 16px;
 font-size: 16px;
 border: none;
 cursor: pointer;
+border-radius: 8px;
 }
 
 /* Dropdown button on hover & focus */
@@ -89,48 +55,66 @@ display: block;
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: #ddd}
+/* .topbar{padding: 20%;} */
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
 </style>
-<script>
-  function myFunction() {
-document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-if (!event.target.matches('.dropbtn')) {
-var dropdowns = document.getElementsByClassName("dropdown-content");
-var i;
-for (i = 0; i < dropdowns.length; i++) {
-  var openDropdown = dropdowns[i];
-  if (openDropdown.classList.contains('show')) {
-    openDropdown.classList.remove('show');
-  }
-}
-}
-}
-</script>
-</head>
 <body>
-  <div class="topbar" style = "position: relative; height: 10%;">
-  <div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">Menu</button>
-    <div id="myDropdown" class="dropdown-content">
-      <a href="/home">Login</a>
-      <a href="/about-us">About Us</a>
-      <a href="/contact-us">Contact Us</a>
-    </div> 
-  </div>
-</div>
-<div class="bg-image"></div>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+                <div class = "topbar" style = "margin-left:750px;">
+                    <div class="dropdown" >
+                      <button onclick="myFunction()" class = "dropbtn">Menu</button>
+                      <div id="myDropdown" class="dropdown-content">
+                        <a href="/home">Login</a>
+                        <a href="/about-us">About Us</a>
+                        <a href="/contact-us">Contact Us</a>
+                      </div> 
+                    </div>
+                  </div>
+                <h2>ABOUT US:</h2>
+                <h1 style="font-size:25px"> BeThereSmart Attendance Tracker</h1><br><br>
+                <p>BeThere Smart Attendance Tracker is an effecient attendance manager which is precisely useful in educational forums for both the managing faculties and the students to manage their attendance efficiently. </p>
 
-<div class="bg-text">
-  <h2>ABOUT US</h2>
-  <h1 style="font-size:25px"> BeThereSmart Attendance Tracker</h1>
-  <p>BeThere Smart Attendance Tracker is an effecient attendance manager which is precisely useful in educational forums for both the managing faculties and the students to manage their attendance efficiently. </p>
-</div>
+			</div>
+		</div>
+	</div>
+    <script>
+        function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+      </script>
+	
+
+	
+	<script src="/static/Login_v1/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/Login_v1/vendor/select2/select2.min.js"></script>
+	<script src="/static/Login_v1/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<script src="/static/Login_v1/js/main.js"></script>
 
 </body>
 </html>

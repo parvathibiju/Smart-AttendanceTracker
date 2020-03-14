@@ -1,15 +1,61 @@
-<html>
-    <title>enter-date-and-time</title> </title>
-    <head>ENTER DATE AND TIME</head>
-    <body>
-        <form action="/update-od-attendance-form" method="POST">
-            <div>
-                <!-- instead make buttons which has every class ever taken-->
-                DATE:<input type="date" required name='date'> <br><br><br>
-                HOUR:<input type = "number" required name=hour><BR><BR>
-                Course:<input type='text' required name='course'><br><br>
-                    <input type="submit" value="GET ABSENTEES LIST">
-            </div>
-        </form>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="icon" type="image/png" href="/static/Login_v1/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/animate/animate.css">	
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/main.css">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style = "padding: 25%;">
+			<div class="wrap-login100">
+
+				<form class="login100-form validate-form" action="/update-od-attendance-form" method="POST">
+					<span class="login100-form-title">
+						OD Details
+					</span>
+
+					
+                    <div class="wrap-input100 validate-input">
+                        DATE:<input type="date" required name='date'class = "input100">
+                    </div>
+                    <div class = "wrap-input100 validate-input">
+                        HOUR:<input type = "number" required name='hour' class = "input100" placeholder = "Enter Hour">
+                        </div>
+                        <div class = "wrap-input100 validate-input">
+                        COURSE:<input type='text' required name='course' class = "input100" placeholder = "Enter Course">
+                    </div>
+                
+					
+					<div class="container-login100-form-btn">
+						<input type="submit" value="GET ABSENTEES LIST" class="login100-form-btn">
+					</div>
+
+				
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+	<script src="/static/Login_v1/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/Login_v1/vendor/select2/select2.min.js"></script>
+	<script src="/static/Login_v1/vendor/tilt/tilt.jquery.min.js"></script>>
+	<script src="/static/Login_v1/js/main.js"></script>
+
+</body>
 </html>

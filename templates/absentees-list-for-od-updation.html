@@ -1,88 +1,67 @@
-<!---Make a page wherer the abseentees student each have a checkbox and whoever has OD you can check their names, and in backend the status changes to OD-->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv=”refresh” content=”60; write_the_url_of_the_page_to_be_tested_over_here.html” />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.bg-image {
-  /* The image used */
-  background-image: url("bg_back.png");
-  
-  /* Add the blur effect */
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
-  
-  /* Full height */
-  height: 100%; 
-  
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* Position text in the middle of the page/image */
-.bg-text {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.1); /* Black w/opacity/see-through */
-  color:black;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 80%;
-  padding: 20px;
-  text-align: center;
-}
-</style>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="icon" type="image/png" href="/static/Login_v1/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1//static/Login_v1/vendor/animate/animate.css">	
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/main.css">
 </head>
 <body>
+	
+	<div class="limiter">
+		<div class="container-login100 "style = "padding: 25%;">
+			<div class="wrap-login100" >
+				<form class="login100-form validate-form" method='POST' action='/update-od-attendance'>
+					<span class="login100-form-title">
+						Absentee List for OD updation
+					</span> 
+                        <div align = "center" style = "padding : 25px;">
+                        <fieldset class="checkboxgroup" >
+                            <p  style = "font-size: 125%;">Absentees with OD</p><br><br>
+                            {% for row in res %}
+                            <ul>
+                            
+                            <label><input type="checkbox" name="check" value={{row.student_id}}>{{row.student_id}} </label><br><br>
+                            
+                           
+                        </ul>
+                        {% endfor %}
+                        </fieldset>
+                    </div>
+                    <input type="hidden" name='hour' value={{hour}}>
+                    <input type="hidden" name='fcid' value={{fcid}}>
+                    <input type="hidden" name='date' value={{date}}>
+                    
+					<div class="container-login100-form-btn">
+				
+                        <input class="login100-form-btn" type="submit" value="UPDATE OD">
+                </div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
 
-<div class="bg-image"></div>
-
-<div class="bg-text">
-    <form method='POST' action='/update-od-attendance'> 
-        <div align = "center" style = "padding : 15%;">
-        <fieldset class="checkboxgroup" >
-            <p>Absentees with OD</p>
-            {% for row in res %}
-            <ul>
-            
-            <label><input type="checkbox" name="check" value={{row.student_id}}>{{row.student_id}} </label><br><br>
-            
-           
-        </ul>
-        {% endfor %}
-        </fieldset>
-    </div>
-    <input type="hidden" name='hour' value={{hour}}>
-    <input type="hidden" name='fcid' value={{fcid}}>
-    <input type="hidden" name='date' value={{date}}>
-    <input type="submit" value="UPDATE OD">
-    </form>
-</div>
+	
+	<script src="/static/Login_v1/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/Login_v1/vendor/select2/select2.min.js"></script>
+	<script src="/static/Login_v1/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<script src="/static/Login_v1/js/main.js"></script>
 
 </body>
 </html>
-
--->
-
-            
-            
-            
-        

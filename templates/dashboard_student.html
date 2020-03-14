@@ -126,7 +126,7 @@ function myFunction() {
             <a href="/upload-od-form">UPLOAD OD</a><br>
             <a href="/attendance-report-form">VIEW DETAILED ATTENDANCE REPORT</a><br>
             <a href="/view-issues-students">VIEW ISSUE HISTORY</a><br>
-            <a href="/view-OD/ML-history">VIEW AAPLIED OD/ML</a>
+            <a href="/view-OD-ML-history">VIEW AAPLIED OD/ML</a>
             <a href="reset-passowrd-form">RESET PASSWORD</a>
             <a href="/logout">LOGOUT</a>
       </div>
@@ -144,7 +144,6 @@ function myFunction() {
 </div>
 
 <div>
-            <form>
             <table  class="table table-dark table-sortable" style="width: 100px; size: 10%" rules = "rows" align = "center">
             {%if result %}
             <thead>
@@ -166,7 +165,6 @@ function myFunction() {
             {% endif %}
         </table>
         </div>
-      </form>
       
       <script >
         function sortTableByColumn(table, column, asc = true){
@@ -215,7 +213,3 @@ function myFunction() {
 
 </body>
 </html>
-
-
-
-

@@ -18,9 +18,10 @@ def allowed_image(filename):
         return True
     else:
         return False
+        
 @app.route('/home')
 def home():
-    return render_template('/logindummy.html')
+    return render_template('login.html')
 @app.route('/login',methods=['GET','POST'])
 def login():
     #error = None
@@ -94,6 +95,9 @@ def login():
               
                 
     return render_template('wrong_password.html')
+        
+      
+    
 
 
 @app.route('/dashboard')
@@ -124,19 +128,19 @@ def dashboard():
             faculty_id=cur.fetchone()["faculty_id"]
             cur.execute('select fac_course_id from faculty_to_course where course_id =%s and faculty_id =%s',(course_id,faculty_id))
             fac_course_id = cur.fetchone()["fac_course_id"]
-            cur.execute('select count(status_of_student) as num from attendance where status_of_student ="P" and fac_course_id = %s and student_id=%s  ',(fac_course_id,student_id))
+            cur.execute('select count(status_of_student) as num from attendance where (status_of_student ="P" or status_of_student="OD") and fac_course_id = %s and student_id=%s  ',(fac_course_id,student_id))
             present=cur.fetchone()["num"]
             cur.execute('select count(status_of_student) as num from attendance where fac_course_id = %s and student_id=%s  ',(fac_course_id,student_id))
             total =cur.fetchone()["num"]
             if total !=0:
                 percentage = present/total * 100
             else:
-                percentage =0
+                percentage = -1
             crs_att_per[course_id] = percentage
             print(crs_att_per)
             cur.execute('select stud_notif_id,stud_message from student_notification where student_id=%s',(student_id))
             notific=cur.fetchall()
-            return render_template('dashboard_student.html',result=res,usr=student_id,name=student_name,dicti= crs_att_per,notif=notific,conten_type="application/json")       
+        return render_template('dashboard_student.html',result=res,usr=student_id,name=student_name,dicti= crs_att_per,notif=notific,conten_type="application/json")       
 
 
 @app.route('/about-us')
@@ -414,9 +418,10 @@ def att_report():
         present=cur.fetchone()['present']
         cur.execute('select count(status_of_student) as total from attendance where fac_course_id = 1 and student_id=%s  ',student_id)
         total = cur.fetchone()['total']
-        percentage = (present/total) *100
-        cur.execute('select date_of_class,hour_of_class ,status_of_student from attendance where fac_course_id=%s and student_id=%s',(fac_course_id,student_id))
-        res=cur.fetchall()    
+        if total!=0:
+            percentage = (present/total) *100
+            cur.execute('select date_of_class,hour_of_class ,status_of_student from attendance where fac_course_id=%s and student_id=%s',(fac_course_id,student_id))
+            res=cur.fetchall()    
   return render_template('attendance-report.html',result=res,percentage=percentage)
 
 
@@ -485,7 +490,7 @@ def save_image():
             cur.execute('insert into od_filename values(LAST_INSERT_ID(),%s)',filenaamee)
     return render_template('upload-od-success.html',fac_id=class_advisor,name=name,forward_id=faculty_id,fac_name=fac_name)
 
-@app.route('reset-passowrd-form')
+@app.route('/reset-passowrd-form')
 def request_password_form():
     return render_template("reset_password.html")
 @app.route('/reset-password',methods=['POST'])
