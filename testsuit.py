@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # # # from selenium import webdriver
 # # # import time
 # # # browser = webdriver.Chrome('/Users/parvathi/Downloads/chromedriver')
@@ -205,7 +205,7 @@
 # # ele1=browser.find_element_by_xpath(x)
 # # ele1.click()
 # # time.sleep(2)
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
+
 
 # # browser.get('http://127.0.0.1:5000/home')
 # # time.sleep(2)
@@ -217,11 +217,7 @@
 # # ele1.click()
 # # time.sleep(2)
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 # # browser.get('http://127.0.0.1:5000/dashboard')
 # # time.sleep(2)
 # # browser.get('http://127.0.0.1:5000/issues-view-faculty')
@@ -231,25 +227,19 @@
 # # time.sleep(2)
 # # browser.get('http://127.0.0.1:5000/course_list_for_faculty')
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 # # time.sleep(2)
 
 # # browser.get('http://127.0.0.1:5000/dashboard')
 # # time.sleep(2)
 # # browser.get('http://127.0.0.1:5000/od-update-date-and-hour')
-<<<<<<< HEAD
-=======
 
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 # # time.sleep(2)
 
 # # browser.get('http://127.0.0.1:5000/dashboard')
 # # time.sleep(2)
 # # browser.get('http://127.0.0.1:5000/change-attendance-status-date-hour-course-form')
-<<<<<<< HEAD
+
 # # browser.get('http://127.0.0.1:5000/home')
 
 
@@ -273,8 +263,8 @@
 #         with self.assertRaises(TypeError):
 #             s.split(2)
 
-# if __name__ == '__main__':
-#     unittest.main()
+if __name__ == '__main__':
+    unittest.main()
 import unittest
 import pymysql
 import pymysql.cursors
@@ -291,7 +281,7 @@ class TestStringMethods(unittest.TestCase):
         
 
 
-=======
+
 
 # # time.sleep(2)
 
@@ -366,24 +356,24 @@ class TestStringMethods(unittest.TestCase):
 
 # time.sleep(2)
 
-import unittest
+# import unittest
 
-class TestStringMethods(unittest.TestCase):
+# class TestStringMethods(unittest.TestCase):
 
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
+#     def test_upper(self):
+#         self.assertEqual('foo'.upper(), 'FOO')
 
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
+#     def test_isupper(self):
+#         self.assertTrue('FOO'.isupper())
+#         self.assertFalse('Foo'.isupper())
 
-    def test_split(self):
-        s = 'hello world'
-        self.assertEqual(s.split(), ['hello', 'world'])
-        # check that s.split fails when the separator is not a string
-        with self.assertRaises(TypeError):
-            s.split(2)
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
+#     def test_split(self):
+#         s = 'hello world'
+#         self.assertEqual(s.split(), ['hello', 'world'])
+#         # check that s.split fails when the separator is not a string
+#         with self.assertRaises(TypeError):
+#             s.split(2)
+# >>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
