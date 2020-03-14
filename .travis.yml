@@ -3,6 +3,8 @@ python:
   - 3.7.3
 cache: pip
 install:
-  - pip3 install -r requirements.txt
+  - pip install flask
+  - pip install pymysql
+  
 script:
-  - python3 testsuit.py
+  - python app.py
