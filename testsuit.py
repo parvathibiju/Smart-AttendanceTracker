@@ -46,7 +46,8 @@ class TestStringMethods(unittest.TestCase):
         con = pymysql.connect(host='localhost', user='dev', password='Parvathi', db='swdb')
         cur = con.cursor()
         faculty_id = "fac101"
-        cur.execute('SELECT * FROM faculty_notification where faculty_id=%s', faculty_id)
+        fac_notif_id="1"
+        cur.execute('SELECT * FROM faculty_notification where faculty_id=%s and fac_notif_id=%s', (faculty_id,fac_notif_id))
         rows = cur.fetchall()
         for row in rows:
             self.assertEqual(row[2], 'ISSUE RAISED BY X STUDENT')
