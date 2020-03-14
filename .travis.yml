@@ -11,6 +11,6 @@ services:
 env:
   - MYSQL_HOST=127.0.0.1 MYSQL_USER=root
 before_install:
-  - mysql -u root --password="" < SATT-github.sql
+  - mysql -u root --password="Parvathi" < SATT-github.sql
 script:
   - python testsuit.py
