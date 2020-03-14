@@ -4,7 +4,7 @@ import pymysql.cursors
 class TestStringMethods(unittest.TestCase):
 
     def test_upper(self):
-        con = pymysql.connect(host='localhost', user='root', password='', db='swdb')
+        con = pymysql.connect(host='localhost', user='dev', password='', db='swdb')
         cur = con.cursor()
         faculty_id = "fac103"
         cur.execute('select * from faculty_login where faculty_id=%s',faculty_id)
