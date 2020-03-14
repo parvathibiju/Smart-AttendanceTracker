@@ -107,7 +107,7 @@
 # # # browser.get('http://127.0.0.1:5000/change-attendance-status-date-hour-course-form')
 
 # # # time.sleep(2)
-=======
+
 # # from selenium import webdriver
 # # import time
 # # browser = webdriver.Chrome('/Users/parvathi/Downloads/chromedriver')
@@ -131,7 +131,7 @@
 # # x='//*[@id="LOGIN"]'
 # # ele1=browser.find_element_by_xpath(x)
 # # ele1.click()
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
+
 
 # # from selenium import webdriver
 # # import time
@@ -146,7 +146,7 @@
 # # ele1=browser.find_element_by_xpath(x)
 # # ele1.click()
 # # time.sleep(2)
-<<<<<<< HEAD
+
 # # browser.get('http://127.0.0.1:5000/raise-issue-form')
 # # browser.find_element_by_name("date").send_keys('02/03/2020')
 # # browser.find_element_by_name("time").send_keys('2')
@@ -166,7 +166,7 @@
 # # browser.get('http://127.0.0.1:5000/view-issues-students')
 # # time.sleep(2)
 
-=======
+
 
 # # browser.get('http://127.0.0.1:5000/home')
 # # time.sleep(2)
