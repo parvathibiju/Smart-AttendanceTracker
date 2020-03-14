@@ -1,11 +1,8 @@
-CREATE USER 'dev'@'localhost' IDENTIFIED BY 'dev';
-GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'dev'@'localhost';
+CREATE USER `dev`@`localhost` IDENTIFIED BY `dev`;
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO `dev`@`localhost`;
 
-<<<<<<< HEAD
+
 CREATE DATABASE  IF NOT EXISTS `swdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-=======
-CREATE DATABASE  IF NOT EXISTS `swdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 USE `swdb`;
 -- MySQL dump 10.13  Distrib 8.0.17, for macos10.14 (x86_64)
 --
