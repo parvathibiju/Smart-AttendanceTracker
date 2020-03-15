@@ -4,16 +4,16 @@
 	<title>Login V1</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-
-<style>
+	<link rel="icon" type="image/png" href="/static/Login_v1/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/animate/animate.css">	
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/util.css">
+  <link rel="stylesheet" type="text/css" href="/static/Login_v1/css/main.css">
+  
+  <style>
     .table-column{
         background-color:whitesmoke;
         padding: 12px;
@@ -27,6 +27,14 @@
     }
 * {
   box-sizing: border-box;
+}
+.footer {
+  overflow: hidden; 
+  position: fixed;
+  background-color: #57b846;
+  padding: 2%;
+  width: 100%;
+  top: 93%;
 }
 
 #myUL {
@@ -69,22 +77,6 @@
   background-color: rgb(17, 127, 218);
   color:black;
 }
-
-.bg-text {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: rgb(7, 6, 6);
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 100%;
-  padding: 180px;
-  text-align: center;
-}
 .table-sortable {
   cursor: pointer;
 }
@@ -112,29 +104,13 @@
   background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
   background: linear-gradient(-135deg, #c850c0, #4158d0);
   padding: 20px 10px;
+  width: 100%;
 }
 
 
 </style>
-<script>
-  function myFunction() {
-      var input, filter, ul, li, a, i, txtValue;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      ul = document.getElementById("myUL");
-      li = ul.getElementsByTagName("li");
-      for (i = 0; i < li.length; i++) {
-          a = li[i].getElementsByTagName("a")[0];
-          txtValue = a.textContent || a.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              li[i].style.display = "";
-          } else {
-              li[i].style.display = "none";
-          }
-      }
-  }
-  </script>
 </head>
+
 <body>
 	
 	<div class="limiter">
@@ -142,45 +118,40 @@
             {% for item in name %}
             <h1> Welcome {{item.name}}</h1>
             {% endfor %}
-            </div>
-            <div class="wrap-login100" style ="padding: 0.5%;">
-            <div class="vertical-menu" style = "size: 5cm;" align = "left">
+          </div>
+          <div class="wrap-login100" style ="padding: 0.5%;">
+            <div class="vertical-menu" style = "size: 5cm;" >
         
                 <a class ="txt2" href="/raise-issue-form">RAISE AN ISSUE</a><br>
-                <a class ="txt2" href="/upload-od-form">UPLOAD OD</a><br>
+                <a class ="txt2" href="/upload-od">UPLOAD OD</a><br>
                 <a class ="txt2" href="/attendance-report-form">VIEW DETAILED ATTENDANCE REPORT</a><br>
                 <a class ="txt2" href="/view-issues-students">VIEW ISSUE HISTORY</a><br>
-                <a class ="txt2" href="/view-OD-ML-history">VIEW AAPLIED OD/ML</a><br>
-                <a class ="txt2" href="reset-passowrd-form">RESET PASSWORD</a><br>
                 <a class ="txt2" href="/logout">LOGOUT</a>
-          </div>
+            </div>
           <div>
-            <table  class="table table-dark table-sortable" style="width: 100px; size: 10%" rules = "rows" align = "center">
-              {%if result %}
-              <thead>
-              <tr>
-                  <th scope="col">course_id</th>
-                  <th scope="col">course_name</th>
-                  <th scope="col">attendance percentage</th>
-                  
-              </tr>
-            </thead>
-              <tbody>
-              {% for row in result %}
-              <tr>
-                  <td align="center" class="table-column" width="10px" ><form method='POST' action='/attendance-report'>
-                    <div class = "wrap-input100 validate-input">
-                    <input type="submit" class = "login100-form-btn" name="course" id="course" value={{row.course_id}}>
-                  </div></form> </td>
-                  <td align="center" class="table-column" width="10px" >{{row.course_name}}</td>
-                  <td align="center" class="table-column" width="10px" >{{dicti[row.course_id]}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-              {% endif %}
-          </table>
+            <table  class="login100-form validate-form table" style="width: 100px; size: 10%">
+            {%if result %}
+            <thead>
+            <tr>
+                <th scope="col">course_id</th>
+                <th scope="col">course_name</th>
+                <th scope="col">attendance percentage</th>
+            </tr>
+          </thead>
+            <tbody>
+            {% for row in result %}
+            <tr>
+                <td  class="table-column" width="8px" >
+                  <form method='POST' action='/attendance-report'><input type="submit" name="course" class = "login100-form-btn"id="course" value={{row.course_id}}></form> </td>
+                <td class="table-column" width="8px" >{{row.course_name}}</td>
+                <td  class="table-column" width="8px" >{{dicti[row.course_id]}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+            {% endif %}
+        </table>
         </div>
-        <div align = "right" style = "height: 700px; width: 25%; position: absolute; left: 1000px; top:17%;">
+        <div  style = "height: 700px; width: 25%; position: absolute; left: 1325px; top:10%;">
 
             <ul id="myUL">
               <li ><a class = "txt2" href="#">Notification</a></li>
@@ -189,59 +160,35 @@
               {% endfor %}
              
         </ul>
-        </div>
-        <script >
-          function sortTableByColumn(table, column, asc = true){
-            const dirModifier = asc ? 1 : -1;
-            const tBody = table.tBodies[0];
-            const rows = Array.from(tBody.querySelectorAll("tr"));
-            const sortedRows = rows.sort((a, b) => {
-                    console.log(a);
-                    console.log(b);
-                    const aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
-                    const bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
-                    console.log(aColText);
-                    console.log(bColText);
-                    //sort each row
-                    return aColText > bColText ? (1 * dirModifier): (-1 * dirModifier);
-                    
-            });
-            //remove the pre-existing data
-            while(tBody.firstChild)
-                    {
-                        tBody.removeChild(tBody.firstChild);
-        
-                    }
-        
-                    //insert the sorted data into the body
-                    tBody.append(...sortedRows);
-            console.log(sortedRows);
-            //remember the sort order
-            table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
-            table.querySelector(`th:nth-child(${column +1})`).classList.toggle("th-sort-asc", asc);
-            table.querySelector(`th:nth-child(${column +1})`).classList.toggle("th-sort-desc", !asc);
-        
-        }
-        //sortTableByColumn(document.querySelector("table"), 1, true);
-        //toggling between ascending and descending ordering
-        document.querySelectorAll(".table-sortable th").forEach(headerCell => {
-            headerCell.addEventListener("click", ()=>{
-                const tableElement = headerCell.parentElement.parentElement.parentElement;
-                const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
-                const currentIsAscending = headerCell.classList.contains("th-sort-asc");
-        
-                sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
-            });
-        });
-        </script>
-        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="vendor/select2/select2.min.js"></script>
-	<script src="vendor/tilt/tilt.jquery.min.js"></script>
-	<script src="js/main.js"></script>
+      </div>
+      </div>
+	</div>
+       <div class="footer"></div>
 </body>
+<script>
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+    </script>
+	<script src="/static/Login_v1/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/Login_v1/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/static/Login_v1/vendor/select2/select2.min.js"></script>
+	<script src="/static/Login_v1/vendor/tilt/tilt.jquery.min.js"></script>
+	<script src="/static/Login_v1/js/main.js"></script>
 
-	
 
 </html>

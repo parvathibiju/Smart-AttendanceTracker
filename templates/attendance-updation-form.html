@@ -16,16 +16,18 @@
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style = "padding: 25%">
+		<div class="container-login100">
 			<div class="wrap-login100">
-
+        <div class="login100-pic js-tilt" data-tilt>
+          <img src="/static/Login_v1/images/img-01.png" alt="IMG">
+			</div>  
 				<form class="login100-form validate-form" action='/attendance-updation' method="POST">
 					<span class="login100-form-title">
                         Course Attendance {{cid}}
                     </span>
-                    <input type = "date" id = "date" name = "date" placeholder="yyyy-mm-dd" class = "input100"><br>
-                    <input type="number" id = "time" name = "time" placeholder = "Hour"class = "input100">
-                    <table class="table table-dark"cellpadding = "20" align = "center" rules = "rows" top = "20%">
+                    <input type = "date" id = "date" name = "date" placeholder="yyyy-mm-dd" class = "input100" required><br>
+                    <input type="number" id = "time" name = "time" placeholder = "Hour"class = "input100" required>
+                    <table class="table table-dark"  top = "20%">
                         <thead>
                           <tr>
                             <th scope="col">Student ID</th>
@@ -52,10 +54,14 @@
                      <input type="hidden" name="cid" id="cid" value= {{cid}}>
 					<div class="container-login100-form-btn">        
                     <input type="submit" value="Submit attendance" class = "login100-form-btn">
-					</div>
-					</div>
-				</form>
-			</div>
+          </div>
+          <div class="container-login100-form-btn">
+            <a class="login100-form-btn" href='/dashboard'>DASHBOARD</a>
+          </div>
+          </div>
+          
+        </form>
+        
 		</div>
 	</div>
 	

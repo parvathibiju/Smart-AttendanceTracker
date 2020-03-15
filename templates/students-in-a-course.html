@@ -25,7 +25,7 @@
 						Students registered for the Course {{cid}} with you
 					</span>
 
-					<table id="course-details" class = " table" style="width: 100px; size: 10%" align = "center">
+					<table id="course-details" class = " table" style="width: 100px; size: 10%" >
             
                         <tr>
                             <th>student_id</th>
@@ -35,14 +35,16 @@
                         {% for row in res %}
                         <tr>
                             
-                            <td align="center" >{{row.student_id}}</td>
-                            <td align="center">{{row.name}}</td>
+                            <td  >{{row.student_id}}</td>
+                            <td >{{row.name}}</td>
                             
                         </tr>
                         {% endfor %}
                       
                     </table>
-					
+					<div class="container-login100-form-btn">
+						<a class="login100-form-btn" href='/dashboard'>DASHBOARD</a>
+					</div>
 				</form>
 			</div>
 		</div>

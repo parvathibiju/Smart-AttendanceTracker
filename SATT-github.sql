@@ -1,12 +1,7 @@
-CREATE USER 'dev'@'localhost' IDENTIFIED BY 'dev';
-GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'dev'@'localhost';
-
-<<<<<<< HEAD
-CREATE DATABASE  IF NOT EXISTS `swdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-=======
+CREATE USER IF NOT EXISTS 'dev'@'localhost' IDENTIFIED BY 'dev';
 CREATE DATABASE  IF NOT EXISTS `swdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 USE `swdb`;
+GRANT ALL ON *.* TO 'dev'@'localhost';
 -- MySQL dump 10.13  Distrib 8.0.17, for macos10.14 (x86_64)
 --
 -- Host: localhost    Database: swdb
@@ -42,11 +37,7 @@ CREATE TABLE `attendance` (
   KEY `student_id` (`student_id`),
   CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`fac_course_id`) REFERENCES `faculty_to_course` (`fac_course_id`),
   CONSTRAINT `attendance_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,11 +62,7 @@ CREATE TABLE `course_details` (
   `course_name` varchar(50) NOT NULL,
   PRIMARY KEY (`course_id`),
   UNIQUE KEY `course_name` (`course_name`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,11 +87,7 @@ CREATE TABLE `faculty` (
   `fname` varchar(25) NOT NULL,
   `lname` varchar(25) NOT NULL,
   PRIMARY KEY (`faculty_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,11 +114,7 @@ CREATE TABLE `faculty_login` (
   PRIMARY KEY (`user_name`),
   KEY `faculty_id` (`faculty_id`),
   CONSTRAINT `faculty_login_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,11 +141,7 @@ CREATE TABLE `faculty_notification` (
   PRIMARY KEY (`fac_notif_id`),
   KEY `faculty_id` (`faculty_id`),
   CONSTRAINT `faculty_notification_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -195,11 +170,7 @@ CREATE TABLE `faculty_to_course` (
   KEY `course_id` (`course_id`),
   CONSTRAINT `faculty_to_course_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`),
   CONSTRAINT `faculty_to_course_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `course_details` (`course_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,11 +197,7 @@ CREATE TABLE `issue` (
   `status_of_issue` varchar(25) DEFAULT 'Ongoing',
   `remarks` text,
   PRIMARY KEY (`issue_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -260,11 +227,7 @@ CREATE TABLE `issue_track` (
   CONSTRAINT `issue_track_ibfk_1` FOREIGN KEY (`issue_id`) REFERENCES `issue` (`issue_id`),
   CONSTRAINT `issue_track_ibfk_2` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`),
   CONSTRAINT `issue_track_ibfk_3` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,11 +252,7 @@ CREATE TABLE `od` (
   `remarks` text,
   `approved_status` varchar(25) NOT NULL,
   PRIMARY KEY (`od_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -317,11 +276,7 @@ CREATE TABLE `od_filename` (
   `pathname` text,
   UNIQUE KEY `image_id` (`image_id`),
   CONSTRAINT `od_filename_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `upload_od` (`image_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -354,11 +309,7 @@ CREATE TABLE `od_track` (
   CONSTRAINT `od_track_ibfk_2` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`),
   CONSTRAINT `od_track_ibfk_3` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`),
   CONSTRAINT `od_track_ibfk_4` FOREIGN KEY (`course_id`) REFERENCES `course_details` (`course_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -385,11 +336,7 @@ CREATE TABLE `student` (
   PRIMARY KEY (`student_id`),
   KEY `class_advisor` (`class_advisor`),
   CONSTRAINT `student_ibfk_1` FOREIGN KEY (`class_advisor`) REFERENCES `faculty` (`faculty_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -416,11 +363,7 @@ CREATE TABLE `student_login` (
   PRIMARY KEY (`user_name`),
   KEY `student_id` (`student_id`),
   CONSTRAINT `student_login_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -447,11 +390,7 @@ CREATE TABLE `student_notification` (
   PRIMARY KEY (`stud_notif_id`),
   KEY `student_id` (`student_id`),
   CONSTRAINT `student_notification_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -481,11 +420,7 @@ CREATE TABLE `student_to_course` (
   CONSTRAINT `student_to_course_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`),
   CONSTRAINT `student_to_course_ibfk_2` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`),
   CONSTRAINT `student_to_course_ibfk_3` FOREIGN KEY (`course_id`) REFERENCES `course_details` (`course_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -515,11 +450,7 @@ CREATE TABLE `upload_od` (
   KEY `student_id` (`student_id`),
   CONSTRAINT `upload_od_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`),
   CONSTRAINT `upload_od_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`)
-<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 6b46ccbc3a01aac81b2f19acd05803789e2fd545
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

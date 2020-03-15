@@ -29,14 +29,16 @@
 						<span class="focus-input100"></span><br>
                      <select name='course' class = "input100" style = "border-radius: 0%;"> 
                         {% for row in result%}
-                        <option value={{row.course_id}}>{{row.course_id}}></option>
+                        <option value={{row.course_id}}>{{row.course_id}}</option>
                         {% endfor%}
                     </select><br>
 					
 					<div class="container-login100-form-btn">
 						<input type="submit" value="GET STUDENTS LIST" class = "login100-form-btn">
 					</div>
-
+					<div class="container-login100-form-btn">
+						<a class="login100-form-btn" href='/dashboard'>DASHBOARD</a>
+					</div>
 					
 				</form>
 			</div>

@@ -22,9 +22,9 @@
 					<span class="login100-form-title">
 						Absentee List for OD updation
 					</span> 
-                        <div align = "center" style = "padding : 25px;">
+                        <div  style = "padding : 25px;">
                         <fieldset class="checkboxgroup" >
-                            <p  style = "font-size: 125%;">Absentees with OD</p><br><br>
+                            <legend><p  style = "font-size: 125%;">Absentees with OD</p><br><br></legend>
                             {% for row in res %}
                             <ul>
                             
@@ -41,10 +41,17 @@
                     
 					<div class="container-login100-form-btn">
 				
-                        <input class="login100-form-btn" type="submit" value="UPDATE OD">
-                </div>
+						<input class="login100-form-btn" type="submit" value="UPDATE OD">
+
+						
+				</div>
+				<div class="container-login100-form-btn">
+					<a class="login100-form-btn" href='/dashboard'>DASHBOARD</a>
+				</div>
 				</form>
+				
 			</div>
+			
 		</div>
 	</div>
 	

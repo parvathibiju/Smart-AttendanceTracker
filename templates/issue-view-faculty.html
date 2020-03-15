@@ -35,7 +35,7 @@
 
 <body>
 	
-	<div class="limiter" align = "justify">
+	<div class="limiter" >
 				<form  class = "login100-form validate-form" action="/change-status-of-issue" method='POST'>
 					<span class="login100-form-title">
 						Change Status of Issue
@@ -43,7 +43,7 @@
 
 					
 					
-					<table id="course-details" class = " table table-dark table-sortable"" style="width: 100px; size: 10%" align = "center">
+					<table id="course-details" class = " table table-dark table-sortable" style="width: 100px; size: 10%" >
                         <thead>
                         <tr>
                             <th>issue_id</th>
@@ -59,12 +59,12 @@
                         {% for row in result %}
                         <tr>
                             
-                            <td align="center" >{{row.issue_id}}</td>
-                            <td align="center" >{{row.student_id}}</td>
-                            <td align="center">{{row.date_of_issue}}</td>
-                            <td align="center">{{row.hour_of_issue}}</td>
-                            <td align="center">{{row.status_of_issue}}</td>
-                            <td align="center"><select name={{row.issue_id}}>
+                            <td  >{{row.issue_id}}</td>
+                            <td  >{{row.student_id}}</td>
+                            <td >{{row.date_of_issue}}</td>
+                            <td >{{row.hour_of_issue}}</td>
+                            <td >{{row.status_of_issue}}</td>
+                            <td ><select name={{row.issue_id}}>
                                 <option value='---'>---</option>
                                 <option value='ongoing'>ongoing</option>
                                 <option value='seen'>seen</option>
