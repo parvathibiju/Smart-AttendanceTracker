@@ -11,9 +11,80 @@
 	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/select2/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/Login_v1/css/main.css">
 </head>
 <style>
+    .container-login1001 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+
+.wrap-login1001 {
+  width: 1150px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 100px 150px 100px 100px;
+}
+.login100-form1 {
+  width: 290px;
+}
+@media (max-width: 992px) {
+  .wrap-login1001 {
+    padding: 177px 90px 33px 85px;
+  }
+
+  .login100-pic1 {
+    width: 35%;
+  }
+
+  .login100-form1 {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap-login1001 {
+    padding: 100px 80px 33px 80px;
+  }
+
+  .login100-pic1 {
+    display: none;
+  }
+
+  .login100-form1 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrap-login1001 {
+    padding: 100px 15px 33px 15px;
+  }
+}
+
     .table-sortable {
         cursor: pointer;
     }
@@ -35,8 +106,9 @@
 <body>
 	
 	<div class="limiter">
-        <div style = "padding:10%; border-color: solid black" >
-                <form action="/delete-issue" class = "login100-form" method='POST'>
+        <div class = "container-login1001">
+            <div class = "wrap-login1001">
+                <form action="/delete-issue" class = "login100-form1 validate-form" method='POST'>
                     <p></p>
                     <br><br><br>
 					<span class="login100-form-title">
@@ -65,7 +137,7 @@
                             <td >{{row.hour_of_issue}}</td>
                             <td >{{row.status_of_issue}}</td>
                             {%if row.status_of_issue =='Ongoing' %}
-                            <td ><label><input type="checkbox" name="check" value={{row.issue_id}}> </label></td><br>
+                            <td ><label><input type="checkbox" name="check" value={{row.issue_id}}> </label></td>
                             {% endif %}
                                
                         </tr>
@@ -73,18 +145,23 @@
                     </tbody>
                       
                     </table>
-                   
+                    <br><br><br><br>
                     <div class="container-login100-form-btn">
                         <input type="submit" value="DELETE" class="login100-form-btn">
                     </div>
                     <div class="container-login100-form-btn">
 						<a class="login100-form-btn" href='/dashboard'>DASHBOARD</a>
-					</div>
+                    </div>
+                </div>
                 </form>
+                
+                </div>
             </div>   
 		
 	
-	</div>
+    </div>
+   
+
 	<script>
         function sortTableByColumn(table, column, asc = true){
             const dirModifier = asc ? 1 : -1;

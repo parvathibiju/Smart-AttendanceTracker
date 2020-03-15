@@ -36,7 +36,7 @@ def login():
                     cur.execute('select user_name, password, faculty_id from faculty_login')
                 elif choice == 'student' :
                     cur.execute('select user_name, password, student_id from student_login')
-                    rows=cur.fetchall()
+                rows=cur.fetchall()
                 for row in rows:
                     if row['user_name']==username and row['password']==password:
                         if choice=='faculty':

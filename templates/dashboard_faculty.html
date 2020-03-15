@@ -11,90 +11,76 @@
 	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/css-hamburgers/hamburgers.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/Login_v1/vendor/select2/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/util.css">
-  <link rel="stylesheet" type="text/css" href="/static/Login_v1/css/main.css">
-  
-  <style>
-    .login100-form1 {
-    left: 100%;
-  }
-      .table-column{
-          background-color:whitesmoke;
-          padding: 12px;
-          width: 60%;
-          margin-left: 200px;
-          margin-right: 2000px;
-      }
-      .information{
-          align-self: center;
-  
-      }
-  * {
-    box-sizing: border-box;
-  }
-  .header {
-    overflow: hidden; 
-    background: #9053c7;
-    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
-    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
-    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-    background: linear-gradient(-135deg, #c850c0, #4158d0);
-    padding: 20px 10px;
-    width: 100%;
-  }
-  .footer {
-    overflow: hidden; 
-    position: fixed;
-    background-color: #57b846;
-    padding: 2%;
-    width: 100%;
-    top: 93%;
-  }
-  #myUL {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  #myUL li a {
-    border: 1px solid #ddd;
-    margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    display: block
-  }
-  
-  #myUL li a:hover:not(.header) {
-    background-color: #eee;
-  }
-  .vertical-menu {
-    width: 200px;
-  }
-  
-  .vertical-menu a {
-    background-color: #eee;
-    color: black;
-    display: block;
-    padding: 12px;
-    text-decoration: none;
-  }
-  
-  .vertical-menu a:hover {
-    background-color: #ccc;
-  }
-  
-  .vertical-menu a.active {
-    background-color: rgb(17, 127, 218);
-    color:black;
-  }
-  
-  
-  
-  </style>
+	<link rel="stylesheet" type="text/css" href="/static/Login_v1/css/main.css">
 </head>
+<style>
+    .table-column{
+        background-color:whitesmoke;
+        padding: 12px;
+        width: 60%;
+        margin-left: 200px;
+        margin-right: 2000px;
+    }
+    .information{
+        align-self: center;
 
+    }
+* {
+  box-sizing: border-box;
+}
+.header {
+  overflow: hidden; 
+  background: #9053c7;
+  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  padding: 30px 20px;
+}
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+.vertical-menu {
+  width: 200px;
+}
+
+.vertical-menu a {
+  background-color: #eee;
+  color: black;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc;
+}
+
+.vertical-menu a.active {
+  background-color: rgb(17, 127, 218);
+  color:black;
+}
+
+
+
+</style>
 <body>
 	
 	<div class="limiter">
@@ -103,58 +89,60 @@
         <h1 > Welcome {{item.name}}</h1>{% endfor %}
     </div>
 	<div class="wrap-login100" style ="padding: 0.5%;">
-    <div class="vertical-menu" style = "size: 5cm;" >
+    <div class="vertical-menu" style = "size: 8cm;" >
        <a class="txt2 " href="/issues-view-faculty">ISSUES</a><br>
-       <a class="txt2" href="/od-applications">OD APPLICATIONS</a><br>
+       <a class="txt2" href="/view-od-applications">VIEW OD APPLICATIONS</a><br>
        <a class="txt2" href="/course_list_for_faculty">ATTENDANCE UPDATION</a><br>
        <a class="txt2" href="/od-update-date-and-hour">UPDATE OD ATTENDANCE</a><br>
        <a class="txt2" href="/change-attendance-status-date-hour-course-form">CHANGE ATTENDANCE STATUS</a><br>
+       <a class="txt2"href="reset-passowrd-form">RESET PASSWORD</a><br>
        <a class="txt2" href="/logout">LOGOUT</a><br>
       </div>
 
-        <div style = "login100-form1">
-            <table id="course-details" class = "login100-form table" style="width: 100px; size: 10%;">
+        <div>
+            <table id="course-details" class = "login100-form validate-form table" style="width: 150px; size: 20%" >
             {%if result %}
+            <thead>
             <tr>
-                <th scope="col">course_id</th>
-                <th scope="col">course_name</th>
+                <th>course_id</th>
+                <th>course_name</th>
             </tr>
-           
+          </thead>
+          <tbody>
             {% for row in result %}
             
             <tr>
-              <td class="table-column" width="8px" >
+              <td class="table-column" width="10px" >
                 <form action = '/students-in-a-course' method='POST'>
                   <input type="hidden" name ='course' id ='course' value={{row.course_id}} >
                   <input type ="submit" class="login100-form-btn" style = "padding: 2px" name='sub' id='sub' value={{row.course_id}}>
               </form> </td>
-                <td  class="table-column" width="10px" >{{row.course_name}}</td>
+                <td  class="table-column"  >{{row.course_name}}</td>
               
             </tr>
           
             {% endfor %}
-          
+          </tbody>
             {% endif %}
         </table>
+        <div  style = "height: 700px; width: 25%; position: absolute; left: 1325px; top:12%;">
+
+          <ul id="myUL">
+          <li ><a class="txt2 " href="#">Notification</a></li>
+          {% for row in notif %}
+          <li><a class="txt2 " href="#">{{row.fac_message}}<h4 style = "padding-left: 90%;">&times;</h4></a></li>
+          {% endfor %}
+      </ul>
+      </div>
         </div>
         
 
-        <div  style = "height: 700px; width: 25%; position: absolute; left: 1325px; top:10%;">
-
-            <ul id="myUL">
-            <li ><a class="txt2 " href="#">Notification</a></li>
-            {% for row in notif %}
-            <li><a class="txt2 " href="#">{{row.fac_message}} <h4 style = "padding-left:90%;">&times;</h4></a></li>
-            {% endfor %}
-        </ul>
+        
+				
+			</div>
         </div>
-      </div>
-      </div>
-      <div class = "footer"></div>
 </body>
-        
-
-<script>
+	<script>
 function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");

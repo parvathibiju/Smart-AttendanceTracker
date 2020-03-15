@@ -18,16 +18,37 @@
 	<div class="limiter">
 		<div class="container-login100 ">
 			<div class="wrap-login100" >
-                 <p style = "font-size: 150%;">Attendance Report</p>
-                <br><br>
-                ATTENDANCE FOR COURSE IS {{percentage}}
+				<span class="login100-form-title">
+				ATTENDANCE REPORT				</span>
+				<br><br>
+				ATTENDANCE FOR COURSE IS {{percentage}}
+				<br><br><br>
+				<br><br><br>
+				<br><br><br>
+				<br><br><br>
+				<table style="width: 500px; size: 10%" >
+					<thead>
+						<th>Date of Class</th>
+						<th> </th>
+						<th> Hour of Class</th>
+						<th>Attendance</th>
+					</thead>
+					<tbody>
+					
                 {% for row in result %}
-                <br><br> {{row.date_of_class}}
-                <br><br>
-                 {{row.hour_of_class}}
-                 <br><br>
-                 {{row.status_of_student}}<br><br>
-                {% endfor %}
+                <tr> <td>{{row.date_of_class}}</td>
+                <td> </td>
+                 <td>{{row.hour_of_class}}</td>
+                 
+                 <td>{{row.status_of_student}}</td>
+				{% endfor %}
+			</tr>
+		</tbody>
+			<br><br>
+			</table>
+			<div class="container-login100-form-btn">
+				<a class="login100-form-btn" href='/dashboard'>DASHBOARD</a>
+			  </div>
 			</div>
 		</div>
 	</div>
