@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # # # from selenium import webdriver
 # # # import time
 # # # browser = webdriver.Chrome('/Users/parvathi/Downloads/chromedriver')
@@ -197,8 +197,7 @@
 
 # if __name__ == '__main__':
 #     unittest.main()
-=======
->>>>>>> fc546c955aa4ca2f15e1b2e171366a50555e7c2a
+
 import unittest
 import pymysql
 import pymysql.cursors
@@ -213,8 +212,7 @@ class TestStringMethods(unittest.TestCase):
         for row in rows:
             self.assertEqual(row[0], 'fac103')
 
-<<<<<<< HEAD
-=======
+
     def test_faculty_login(self):
         con = pymysql.connect(host='localhost', user='dev', password='Parvathi', db='swdb')
         cur = con.cursor()
@@ -290,7 +288,6 @@ class TestStringMethods(unittest.TestCase):
 
 
 
->>>>>>> fc546c955aa4ca2f15e1b2e171366a50555e7c2a
 
 if __name__ == '__main__':
     unittest.main()
