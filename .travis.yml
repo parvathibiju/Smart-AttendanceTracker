@@ -6,7 +6,7 @@ install:
   - pip install flask
   - pip install pymysql
   - pip install selenium
-  - python app.py
+  
 services:
   - mysql8.0.1
 env:
@@ -15,5 +15,6 @@ before_install:
   - mysql -u root --password="" < SATT-github.sql
   
 script:
+  - python app.py &
   - python testsuit.py
   
