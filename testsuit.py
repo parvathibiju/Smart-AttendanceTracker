@@ -272,7 +272,7 @@ class TestStringMethods(unittest.TestCase):
         cur.execute('SELECT * FROM student where student_id=%s', student_id)
         rows = cur.fetchall()
         for row in rows:
-            self.assertEqual(row[3], 'cse123')
+            self.assertEqual(row[3], 'cse121')
 
     def test_student_course(self):
         con = pymysql.connect(host='localhost', user='dev', password='Parvathi', db='swdb')
